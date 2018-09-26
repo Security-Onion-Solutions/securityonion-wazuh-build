@@ -27,10 +27,11 @@ install:
 	mkdir -p debian/ossec-hids-server/etc
 
 	# Create directories
-	(cd ${DIR}; mkdir -p .ssh active-response active-response/bin agentless bin etc etc/shared etc/lists framework/wazuh integrations/pagerduty integrations/slack integrations/virustotal lib logs logs/alerts logs/archives logs/cluster logs/firewall logs/ossec queue queue/agent-info queue/agent-groups queue/agentless queue/agents queue/alerts queue/cluster queue/db queue/diff queue/fts queue/ossec queue/rids queue/rootcheck queue/syscheck queue/vulnerabilities rules stats tmp var var/db var/db/agents var/download var/run var/selinux var/upgrade var/wodles)
+	(cd ${DIR}; mkdir -p .ssh active-response active-response/bin agentless bin etc etc/shared etc/lists framework/wazuh integrations lib logs logs/alerts logs/archives logs/cluster logs/firewall logs/ossec queue queue/agent-info queue/agent-groups queue/agentless queue/agents queue/alerts queue/cluster queue/db queue/diff queue/fts queue/ossec queue/rids queue/rootcheck queue/syscheck queue/vulnerabilities rules stats tmp var var/db var/db/agents var/download var/run var/selinux var/upgrade var/wodles wodles)
 
 	# Populate the active-response/ directory
 	cp -p active-response/*.sh ${DIR}/active-response/bin/
+	cp -p active-response/*.py ${DIR}/active-response/bin/
 	cp -p active-response/firewalls/*.sh ${DIR}/active-response/bin/
 
 	# Populate the agentless/ directory
@@ -46,6 +47,7 @@ install:
 	cp -pr etc/internal_options.conf ${DIR}/etc/
 	cp -pr src/rootcheck/db/*.txt ${DIR}/etc/shared/
 	cp -pr etc/ossec-securityonion.conf ${DIR}/etc/ossec.conf
+	cp -pr etc/lists/* ${DIR}/etc/lists/
 
 	# Populate the bin/ directory
 	cp -pr src/ossec* ${DIR}/bin/
@@ -70,11 +72,17 @@ install:
 	# Populate the framework/wazuh directory
 	cp -pr framework/wazuh/* ${DIR}/framework/wazuh/
 
+	# Populate the integrations directory
+	cp -pr integrations/* ${DIR}/integrations/
+
 	# Populate the lib/ directory
 	cp -pr src/libwazuhext.so ${DIR}/lib/
 
 	# Populate the rules/ directory
 	cp -pr etc/rules/* ${DIR}/rules/
+
+	# Populate the wodles/ directory
+	cp -pr wodles/* ${DIR}/wodles/
 
 	# Populate the init file
 	echo "DIRECTORY=\"/var/ossec\"" > ${OSSEC_INIT}

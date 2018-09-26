@@ -2,6 +2,16 @@
 # OSSEC	        Controls OSSEC HIDS
 # Author:       Daniel B. Cid <dcid@ossec.net>
 # Modified for slackware by Jack S. Lai
+### BEGIN INIT INFO
+# Provides:          ossec-hids-server
+# Required-Start:    
+# Required-Stop:     
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: ossec-hids-server
+# Description:       ossec-hids-server
+### END INIT INFO
+
 
 
 . /etc/ossec-init.conf

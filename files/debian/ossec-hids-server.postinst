@@ -158,6 +158,10 @@ chmod -R 770 ${DIR}/var/upgrade 2> /dev/null || /bin/true
 chown -R root:${GROUP} ${DIR}/var/wodles 2> /dev/null || /bin/true
 chmod -R 770 ${DIR}/var/wodles 2> /dev/null || /bin/true
 
+# wodles root:ossec 750
+chown -R root:${GROUP} ${DIR}/wodles 2> /dev/null || /bin/true
+chmod -R 750 ${DIR}/wodles 2> /dev/null || /bin/true
+
 # End of Wazuh additions
 
 # For the stats directory
