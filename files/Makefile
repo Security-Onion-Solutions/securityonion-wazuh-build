@@ -27,7 +27,7 @@ install:
 	mkdir -p debian/ossec-hids-server/etc
 
 	# Create directories
-	(cd ${DIR}; mkdir -p .ssh active-response active-response/bin agentless bin etc etc/shared etc/lists framework/wazuh integrations lib logs logs/alerts logs/archives logs/cluster logs/firewall logs/ossec queue queue/agent-info queue/agent-groups queue/agentless queue/agents queue/alerts queue/cluster queue/db queue/diff queue/fts queue/ossec queue/rids queue/rootcheck queue/syscheck queue/vulnerabilities rules stats tmp var var/db var/db/agents var/download var/run var/selinux var/upgrade var/wodles wodles)
+	(cd ${DIR}; mkdir -p .ssh active-response active-response/bin agentless bin etc etc/shared/default etc/lists framework/wazuh integrations lib logs logs/alerts logs/archives logs/cluster logs/firewall logs/ossec queue queue/agent-info queue/agent-groups queue/agentless queue/agents queue/alerts queue/cluster queue/db queue/diff queue/fts queue/ossec queue/rids queue/rootcheck queue/syscheck queue/vulnerabilities rules ruleset stats tmp var var/db var/db/agents var/download var/run var/selinux var/upgrade var/wodles wodles)
 
 	# Populate the active-response/ directory
 	cp -p active-response/*.sh ${DIR}/active-response/bin/
@@ -45,7 +45,7 @@ install:
 	cp -pr etc/local_internal_options.conf ${DIR}/etc/ > /dev/null 2>&1 || /bin/true
 	cp -pr etc/client.keys ${DIR}/etc/ > /dev/null 2>&1 ||/bin/true
 	cp -pr etc/internal_options.conf ${DIR}/etc/
-	cp -pr src/rootcheck/db/*.txt ${DIR}/etc/shared/
+	cp -pr src/rootcheck/db/*.txt ${DIR}/etc/shared/default/
 	cp -pr etc/ossec-securityonion.conf ${DIR}/etc/ossec.conf
 	cp -pr etc/lists/* ${DIR}/etc/lists/
 
@@ -80,6 +80,9 @@ install:
 
 	# Populate the rules/ directory
 	cp -pr etc/rules/* ${DIR}/rules/
+
+	# Populate the ruleset/ directory
+	cp -pr src/update/ruleset/RULESET_VERSION ${DIR}/ruleset/VERSION
 
 	# Populate the wodles/ directory
 	cp -pr wodles/* ${DIR}/wodles/

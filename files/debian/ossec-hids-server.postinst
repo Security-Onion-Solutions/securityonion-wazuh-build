@@ -142,6 +142,12 @@ chmod -R 750 ${DIR}/queue/db 2> /dev/null || /bin/true
 chown -R root:${GROUP} ${DIR}/queue/vulnerabilities 2> /dev/null || /bin/true
 chmod -R 770 ${DIR}/queue/vulnerabilities 2> /dev/null || /bin/true
 
+# ruleset root:ossec 750
+chown -R root:${GROUP} ${DIR}/ruleset 2> /dev/null || /bin/true
+chmod -R 750 ${DIR}/ruleset 2> /dev/null || /bin/true
+ln -s ../rules /var/ossec/ruleset/rules 2> /dev/null || /bin/true
+ln -s ../etc/decoders /var/ossec/ruleset/decoders 2> /dev/null || /bin/true
+
 # var/download root:ossec 770
 chown -R root:${GROUP} ${DIR}/var/download 2> /dev/null || /bin/true
 chmod -R 770 ${DIR}/var/download 2> /dev/null || /bin/true
