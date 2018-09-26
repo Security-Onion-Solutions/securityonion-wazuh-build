@@ -114,6 +114,14 @@ chmod 740 ${DIR}/queue/agentless/* 2> /dev/null || /bin/true
 
 # Wazuh added new directories
 
+# etc/shared/default ossec:ossec 770 don't recurse
+chown -R ${USER}:${GROUP} ${DIR}/etc/shared/default 2> /dev/null || /bin/true
+chmod 770 ${DIR}/etc/shared/default 2> /dev/null || /bin/true
+
+# etc/rootcheck root:ossec 770 don't recurse
+chown -R root:${GROUP} ${DIR}/etc/rootcheck 2> /dev/null || /bin/true
+chmod 770 ${DIR}/etc/rootcheck 2> /dev/null || /bin/true
+
 # framework root:ossec 750
 chown -R root:${GROUP} ${DIR}/framework 2> /dev/null || /bin/true
 chmod -R 750 ${DIR}/framework 2> /dev/null || /bin/true
@@ -142,9 +150,9 @@ chmod -R 750 ${DIR}/queue/db 2> /dev/null || /bin/true
 chown -R root:${GROUP} ${DIR}/queue/vulnerabilities 2> /dev/null || /bin/true
 chmod -R 770 ${DIR}/queue/vulnerabilities 2> /dev/null || /bin/true
 
-# ruleset root:ossec 750
+# ruleset root:ossec 750 don't recurse
 chown -R root:${GROUP} ${DIR}/ruleset 2> /dev/null || /bin/true
-chmod -R 750 ${DIR}/ruleset 2> /dev/null || /bin/true
+chmod 750 ${DIR}/ruleset 2> /dev/null || /bin/true
 ln -s ../rules /var/ossec/ruleset/rules 2> /dev/null || /bin/true
 ln -s ../etc/decoders /var/ossec/ruleset/decoders 2> /dev/null || /bin/true
 
