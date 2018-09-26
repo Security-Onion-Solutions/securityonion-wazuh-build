@@ -1,0 +1,406 @@
+ossec-hids-server (2.8.2-ubuntu10securityonion4) xenial; urgency=medium
+
+  * rebuild for xenial 
+
+ -- Doug Burks <doug.burks@gmail.com>  Thu, 17 May 2018 16:20:54 -0400
+
+ossec-hids-server (2.8.2-ubuntu10securityonion3) trusty; urgency=medium
+
+  * fix errors on new installations 
+
+ -- Doug Burks <doug.burks@gmail.com>  Mon, 19 Oct 2015 15:49:45 -0400
+
+ossec-hids-server (2.8.2-ubuntu10securityonion2) precise; urgency=low
+
+  * replace HEXTRA with -DMAX_AGENTS=1024
+
+ -- Doug Burks <doug.burks@gmail.com>  Tue, 16 Jun 2015 15:42:00 -0400
+
+ossec-hids-server (2.8.2-ubuntu10securityonion1) precise; urgency=low
+
+  * OSSEC 2.8.2 
+
+ -- Doug Burks <doug.burks@gmail.com>  Tue, 16 Jun 2015 14:42:45 -0400
+
+ossec-hids-server (2.8.1-ubuntu10securityonion10) precise; urgency=low
+
+  * additional error handling in postinst 
+
+ -- Doug Burks <doug.burks@gmail.com>  Fri, 03 Oct 2014 14:58:39 -0400
+
+ossec-hids-server (2.8.1-ubuntu10securityonion9) precise; urgency=low
+
+  * fix postinst to only grab the first instance of each email variable 
+
+ -- Doug Burks <doug.burks@gmail.com>  Fri, 03 Oct 2014 14:53:25 -0400
+
+ossec-hids-server (2.8.1-ubuntu10securityonion8) precise; urgency=low
+
+  * change sostat-interface-delta to sostat-interface 
+
+ -- Doug Burks <doug.burks@gmail.com>  Fri, 03 Oct 2014 13:09:26 -0400
+
+ossec-hids-server (2.8.1-ubuntu10securityonion7) precise; urgency=low
+
+  * set frequency to 600 
+
+ -- Doug Burks <doug.burks@gmail.com>  Fri, 03 Oct 2014 10:25:28 -0400
+
+ossec-hids-server (2.8.1-ubuntu10securityonion6) precise; urgency=low
+
+  * set sostat-interface-delta to frequency 300 
+
+ -- Doug Burks <doug.burks@gmail.com>  Fri, 03 Oct 2014 10:17:10 -0400
+
+ossec-hids-server (2.8.1-ubuntu10securityonion5) precise; urgency=low
+
+  * add a better interface check 
+
+ -- Doug Burks <doug.burks@gmail.com>  Fri, 03 Oct 2014 10:05:48 -0400
+
+ossec-hids-server (2.8.1-ubuntu10securityonion4) precise; urgency=low
+
+  * remove interface check since it was causing performance issues 
+
+ -- Doug Burks <doug.burks@gmail.com>  Wed, 01 Oct 2014 11:22:29 -0400
+
+ossec-hids-server (2.8.1-ubuntu10securityonion3) precise; urgency=low
+
+  * hardcode HEXTRA for SETMAXAGENTS 1024
+  * host-deny.sh fix from http://www.ossec.net/?p=1135#comment-555 
+
+ -- Doug Burks <doug.burks@gmail.com>  Tue, 23 Sep 2014 12:57:19 -0400
+
+ossec-hids-server (2.8.1-ubuntu10securityonion2) precise; urgency=low
+
+  * update Makefile to set version to 2.8.1 in ossec-init.conf 
+
+ -- Doug Burks <doug.burks@gmail.com>  Wed, 17 Sep 2014 11:21:07 -0400
+
+ossec-hids-server (2.8.1-ubuntu10securityonion1) precise; urgency=low
+
+  * OSSEC 2.8.1
+
+ -- Doug Burks <doug.burks@gmail.com>  Tue, 16 Sep 2014 12:27:17 -0400
+
+ossec-hids-server (2.8.0-ubuntu10securityonion7) precise; urgency=low
+
+  * hardcode HEXTRA for SETMAXAGENTS 1024
+
+ -- Doug Burks <doug.burks@gmail.com>  Tue, 26 Aug 2014 16:46:44 -0400
+
+ossec-hids-server (2.8.0-ubuntu10securityonion6) precise; urgency=low
+
+  * import email settings from ossec.conf 
+
+ -- Doug Burks <doug.burks@gmail.com>  Tue, 26 Aug 2014 15:41:02 -0400
+
+ossec-hids-server (2.8.0-ubuntu10securityonion5) precise; urgency=low
+
+  * fix equality test in postinst 
+
+ -- Doug Burks <doug.burks@gmail.com>  Tue, 26 Aug 2014 10:43:23 -0400
+
+ossec-hids-server (2.8.0-ubuntu10securityonion4) precise; urgency=low
+
+  * add syslog_output to ossec.conf 
+
+ -- Doug Burks <doug.burks@gmail.com>  Tue, 26 Aug 2014 09:28:09 -0400
+
+ossec-hids-server (2.8.0-ubuntu10securityonion3) precise; urgency=low
+
+  * add code to preinst to fix previous postrm 
+
+ -- Doug Burks <doug.burks@gmail.com>  Tue, 26 Aug 2014 08:17:18 -0400
+
+ossec-hids-server (2.8.0-ubuntu10securityonion2) precise; urgency=low
+
+  * disable conffiles 
+
+ -- Doug Burks <doug.burks@gmail.com>  Mon, 25 Aug 2014 16:32:12 -0400
+
+ossec-hids-server (2.8.0-ubuntu10securityonion1) precise; urgency=medium
+
+  * update packaging for Security Onion
+
+ -- Doug Burks <doug.burks@gmail.com>  Mon, 25 Aug 2014 15:51:11 -0400
+
+ossec-hids-server (2.8.0-ubuntu10) precise; urgency=medium
+
+  * remove bro-ids_rules.xml in etc/ossec.conf 
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Tue, 10 Jun 2014 02:08:40 +0000
+
+ossec-hids-server (2.8.0-ubuntu9) trusty; urgency=medium
+
+  * remove bro-ids_rules.xml in etc/ossec.conf 
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Tue, 10 Jun 2014 01:36:38 +0000
+
+ossec-hids-server (2.8.0-ubuntu8) lucid; urgency=medium
+
+  * add apache2 and nginx log into default ossec.conf + bugfix 
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Sat, 07 Jun 2014 01:10:02 +0000
+
+ossec-hids-server (2.8.0-ubuntu7) trusty; urgency=medium
+
+  * add apache2 and nginx log into default ossec.conf + bugfix 
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Sat, 07 Jun 2014 01:09:18 +0000
+
+ossec-hids-server (2.8.0-ubuntu5) precise; urgency=medium
+
+  * add apache2 and nginx log into default ossec.conf + bugfix 
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Sat, 07 Jun 2014 00:28:29 +0000
+
+ossec-hids-server (2.8.0-ubuntu4) lucid; urgency=medium
+
+  * Ossec 2.8 for lucid 
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Fri, 06 Jun 2014 22:57:00 +0000
+
+ossec-hids-server (2.8.0-ubuntu3) precise; urgency=medium
+
+  * Ossec 2.8 for precise
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Fri, 06 Jun 2014 22:51:05 +0000
+
+ossec-hids-server (2.8.0-ubuntu2) trusty; urgency=medium
+
+  * Ossec 2.8 for trusty
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Fri, 06 Jun 2014 16:32:09 +0000
+
+ossec-hids-server (2.7.0-ubuntu30) trusty; urgency=medium
+
+  * For trusty: fix for geoip (function name collision) 
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Thu, 15 May 2014 16:16:29 +0000
+
+ossec-hids-server (2.7.0-ubuntu29) trusty; urgency=low
+
+  * For trusty
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Tue, 06 May 2014 11:52:35 +0000
+
+ossec-hids-server (2.7.0-ubuntu28) lucid; urgency=low
+
+  * Do not override ossec.conf and local_rules.xml 
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Sun, 13 Apr 2014 17:43:13 +0000
+
+ossec-hids-server (2.7.0-ubuntu27) precise; urgency=low
+
+  * Do not override ossec.conf and local_rules.xml 
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Sun, 13 Apr 2014 17:41:39 +0000
+
+ossec-hids-server (2.7.0-ubuntu26) lucid; urgency=low
+
+  * Recompile to not depend on previous version of openssl (and maybe Heartbleed) 
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Thu, 10 Apr 2014 23:51:17 +0000
+
+ossec-hids-server (2.7.0-ubuntu25) precise; urgency=low
+
+  * Recompile to not depend on previous version of openssl (and maybe Heartbleed) 
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Thu, 10 Apr 2014 23:44:24 +0000
+
+ossec-hids-server (2.7.0-ubuntu24) lucid; urgency=low
+
+  *  push the new version to lucid
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Fri, 09 Aug 2013 15:00:11 +0000
+
+ossec-hids-server (2.7.0-ubuntu23) precise; urgency=low
+
+  * bugfix: when trying to download geoip db, be sure to not fail the
+    postinstall script 
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Fri, 09 Aug 2013 14:31:05 +0000
+
+ossec-hids-server (2.7.0-ubuntu22) lucid; urgency=low
+
+  * push the new version to lucid
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Fri, 05 Jul 2013 19:07:42 +0000
+
+ossec-hids-server (2.7.0-ubuntu21) precise; urgency=low
+
+  * Don't provide geoip link or database: the one given with ubuntu doesnt work 
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Thu, 27 Jun 2013 21:04:43 +0000
+
+ossec-hids-server (2.7.0-ubuntu20) precise; urgency=low
+
+  * bugfix with detection of group and names
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Thu, 27 Jun 2013 20:05:23 +0000
+
+ossec-hids-server (2.7.0-ubuntu19) precise; urgency=low
+
+  * bugfix: change geoip file db link from hard to soft (link) and test its presence
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Thu, 27 Jun 2013 18:43:15 +0000
+
+ossec-hids-server (2.7.0-ubuntu18) precise; urgency=low
+
+  * bugfix: change geoip file db link from hard to soft (link)
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Thu, 27 Jun 2013 13:43:57 +0000
+
+ossec-hids-server (2.7.0-ubuntu17) precise; urgency=low
+
+  * add basic geoip database dependancies 
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Tue, 25 Jun 2013 15:47:05 +0000
+
+ossec-hids-server (2.7.0-ubuntu16) lucid; urgency=low
+
+  * add geoip support, without db 
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Thu, 13 Jun 2013 16:27:43 +0000
+
+ossec-hids-server (2.7.0-ubuntu15) precise; urgency=low
+
+  * add geoip support, without db
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Thu, 13 Jun 2013 16:25:06 +0000
+
+ossec-hids-server (2.7.0-ubuntu14) lucid; urgency=low
+
+  * add geoip support! 
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Thu, 13 Jun 2013 14:01:15 +0000
+
+ossec-hids-server (2.7.0-ubuntu13) precise; urgency=low
+
+  * add geoip support! 
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Thu, 13 Jun 2013 13:17:09 +0000
+
+ossec-hids-server (2.7.0-ubuntu12) lucid; urgency=low
+
+  * add fix to lucid 
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Sat, 27 Apr 2013 21:50:43 +0000
+
+ossec-hids-server (2.7.0-ubuntu11) precise; urgency=low
+
+  * Fix a bug in ossec giving not correct permission to /var/ossec/etc/shared/ar.conf 
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Sat, 27 Apr 2013 21:45:52 +0000
+
+ossec-hids-server (2.7.0-ubuntu10) precise; urgency=low
+
+  * bugfix: update etc and active-response to last version 
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Sat, 27 Apr 2013 21:25:39 +0000
+
+ossec-hids-server (2.7.0-ubuntu9) lucid; urgency=low
+
+  * add requirement for libssl, to compile agent-auth for lucid 
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Thu, 21 Mar 2013 01:25:26 +0000
+
+ossec-hids-server (2.7.0-ubuntu8) precise; urgency=low
+
+  * add requirement for libssl, to compile agent-auth
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Thu, 21 Mar 2013 01:24:27 +0000
+
+ossec-hids-server (2.7.0-ubuntu7) precise; urgency=low
+
+  * none 
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Thu, 17 Jan 2013 03:15:53 +0000
+
+ossec-hids-server (2.7.0-ubuntu6) precise; urgency=low
+
+  * bugfix in version number 
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Thu, 17 Jan 2013 03:10:56 +0000
+
+ossec-hids-server (2.7.0-ubuntu5) precise; urgency=low
+
+  * update init script
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Thu, 17 Jan 2013 02:56:26 +0000
+
+ossec-hids-server (2.7.0-ubuntu4) lucid; urgency=low
+
+  * lucid version, with bugfix: add util.sh
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Thu, 17 Jan 2013 00:40:35 +0000
+
+ossec-hids-server (2.7.0-ubuntu3) precise; urgency=low
+
+  * bugfix: add util.sh 
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Thu, 17 Jan 2013 00:04:16 +0000
+
+ossec-hids-server (2.7.0-ubuntu2) precise; urgency=low
+
+  * compile for precise 
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Fri, 11 Jan 2013 22:28:56 +0000
+
+ossec-hids-server (2.7.0-ubuntu1) lucid; urgency=low
+
+  * package for 2.7.0
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Fri, 11 Jan 2013 21:16:20 +0000
+
+ossec-hids-server (2.6.0-ubuntu9) lucid; urgency=low
+
+  * same package but for lucid
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Sat, 23 Jun 2012 23:57:42 +0000
+
+ossec-hids-server (2.6.0-ubuntu8) lucid precise; urgency=low
+
+  * this package works for lucid and precise
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Sat, 23 Jun 2012 23:36:14 +0000
+
+ossec-hids-server (2.6.0-ubuntu7) precise; urgency=low
+
+  * Add debconf to configuration process 
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Sat, 23 Jun 2012 22:38:05 +0000
+
+ossec-hids-server (2.6.0-ubuntu6) precise; urgency=low
+
+  * fist release for precise LTS
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Tue, 05 Jun 2012 20:54:00 +0000
+
+ossec-hids-server (2.6.0-ubuntu5) lucid; urgency=low
+
+  * Change control file to build for any architecture!
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Wed, 28 Dec 2011 15:40:07 -0500
+
+ossec-hids-server (2.6.0-ubuntu4) lucid; urgency=low
+
+  * Bug fix: bad copy of var/ossec/etc/ossec.conf
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Thu, 17 Mar 2011 15:20:00 -0400
+ossec-hids-server (2.6.0-ubuntu3) lucid; urgency=low
+
+  * Bug fix: forgot to put /etc/ossec-init.conf
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Thu, 17 Mar 2011 15:09:00 -0400
+ossec-hids-server (2.6.0-ubuntu2) lucid; urgency=low
+
+  * Bug fix: forgot to put ossec.conf
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Thu, 17 Mar 2011 11:46:29 -0400
+ossec-hids-server (2.6.0-ubuntu1) lucid; urgency=low
+
+  * Initial release 
+
+ -- Nicolas Zin <nicolas.zin@gmail.com>  Thu, 17 Mar 2011 11:46:29 -0400
