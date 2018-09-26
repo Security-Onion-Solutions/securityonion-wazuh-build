@@ -45,9 +45,10 @@ install:
 	cp -pr etc/local_internal_options.conf ${DIR}/etc/ > /dev/null 2>&1 || /bin/true
 	cp -pr etc/client.keys ${DIR}/etc/ > /dev/null 2>&1 ||/bin/true
 	cp -pr etc/internal_options.conf ${DIR}/etc/
-	cp -pr src/rootcheck/db/*.txt ${DIR}/etc/shared/default/
-	cp -pr etc/ossec-securityonion.conf ${DIR}/etc/ossec.conf
 	cp -pr etc/lists/* ${DIR}/etc/lists/
+	cp -pr etc/ossec-securityonion.conf ${DIR}/etc/ossec.conf
+	cp -pr src/rootcheck/db/*.txt ${DIR}/etc/shared/default/
+	cp -pr etc/agent.conf ${DIR}/etc/shared/default/
 
 	# Populate the bin/ directory
 	cp -pr src/ossec* ${DIR}/bin/
