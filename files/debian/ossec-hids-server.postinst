@@ -114,14 +114,6 @@ chmod 740 ${DIR}/queue/agentless/* 2> /dev/null || /bin/true
 
 # Wazuh added new directories
 
-# etc/shared/default ossec:ossec 770 don't recurse
-chown -R ${USER}:${GROUP} ${DIR}/etc/shared/default 2> /dev/null || /bin/true
-chmod 770 ${DIR}/etc/shared/default 2> /dev/null || /bin/true
-
-# etc/rootcheck root:ossec 770 don't recurse
-chown -R root:${GROUP} ${DIR}/etc/rootcheck 2> /dev/null || /bin/true
-chmod 770 ${DIR}/etc/rootcheck 2> /dev/null || /bin/true
-
 # framework root:ossec 750
 chown -R root:${GROUP} ${DIR}/framework 2> /dev/null || /bin/true
 chmod -R 750 ${DIR}/framework 2> /dev/null || /bin/true
@@ -239,6 +231,14 @@ chmod 440 ${DIR}/etc/shared/*
 chmod 550 ${DIR}/agentless/*
 rm ${DIR}/etc/shared/merged.mg 2>/dev/null || /bin/true
 chmod 700 ${DIR}/.ssh
+
+# etc/shared/default ossec:ossec 770 don't recurse
+chown -R ${USER}:${GROUP} ${DIR}/etc/shared/default 2> /dev/null || /bin/true
+chmod 770 ${DIR}/etc/shared/default 2> /dev/null || /bin/true
+
+# etc/rootcheck root:ossec 770 don't recurse
+chown -R root:${GROUP} ${DIR}/etc/rootcheck 2> /dev/null || /bin/true
+chmod 770 ${DIR}/etc/rootcheck 2> /dev/null || /bin/true
 
 # [...]
 #active response
