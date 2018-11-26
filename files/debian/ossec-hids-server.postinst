@@ -259,22 +259,13 @@ chmod 550 ${DIR}/bin/*
 chown root:${GROUP} ${DIR}/etc/ossec.conf
 chmod 440 ${DIR}/etc/ossec.conf
 
+# /var/ossec/etc/ossec-init.conf should be a symlink to /etc/ossec-init.conf
+# https://github.com/Security-Onion-Solutions/security-onion/issues/1360
+ln -s /etc/ossec-init.conf ${DIR}/etc/ossec-init.conf
+
 #################
 # Security Onion 
 #################
-
-# Previously, we were enabling client-syslog to send alerts to syslog to get them into single line format.  This shouldn’t be necessary anymore if we move to json.
-# If user enabled ELSA, configure OSSEC to send alerts to local syslog
-#ELSA="no"
-#FILE="/etc/nsm/securityonion.conf"
-#[ -f $FILE ] && grep "ELSA=" $FILE >/dev/null && ELSA=`grep "ELSA=" $FILE | cut -d\= -f2 | tr "[:upper:]" "[:lower:]"` && if [ "$ELSA" = "yes" ]; then 
-#	grep "syslog_output" /var/ossec/etc/ossec.conf >/dev/null || sed -i 's|  <rules>|  <syslog_output>\
-#      <server>127.0.0.1</server>\
-#  </syslog_output>\
-#\
-#  <rules>|g' /var/ossec/etc/ossec.conf || echo "Error adding syslog_output to ossec.conf."
-#/var/ossec/bin/ossec-control enable client-syslog || echo "Error enabling client-syslog."
-#fi
 
 # local_rules.xml
 DEFAULT="/var/ossec/rules/local_rules.xml"

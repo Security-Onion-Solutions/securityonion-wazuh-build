@@ -82,6 +82,7 @@ install:
 
 	# Populate the rules/ directory
 	cp -pr etc/rules/* ${DIR}/rules/
+	cp -pr etc/local_rules.xml ${DIR}/rules/
 
 	# Populate the ruleset/ directory
 	cp -pr src/update/ruleset/RULESET_VERSION ${DIR}/ruleset/VERSION
@@ -94,6 +95,7 @@ install:
 	echo "VERSION=\"v3.6.1\"" >> ${OSSEC_INIT}
 	echo "DATE=\"`date`\"" >> ${OSSEC_INIT}
 	echo "TYPE=\"server\"" >> ${OSSEC_INIT}
+	echo "NAME=\"Wazuh\"" >> ${OSSEC_INIT}
 #	(cd etc; wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz; gunzip GeoLiteCity.dat.gz)
 #	(cd etc; wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCityv6-beta/GeoLiteCityv6.dat.gz; gunzip GeoLiteCityv6.dat.gz)
 
