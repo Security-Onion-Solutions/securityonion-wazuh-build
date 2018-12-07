@@ -27,7 +27,7 @@ install:
 	mkdir -p debian/ossec-hids-server/etc
 
 	# Create directories
-	(cd ${DIR}; mkdir -p .ssh active-response active-response/bin agentless bin etc etc/shared/default etc/lists etc/rootcheck framework/wazuh integrations lib logs logs/alerts logs/archives logs/cluster logs/firewall logs/ossec queue queue/agent-info queue/agent-groups queue/agentless queue/agents queue/alerts queue/cluster queue/db queue/diff queue/fts queue/ossec queue/rids queue/rootcheck queue/syscheck queue/vulnerabilities rules ruleset stats tmp var var/db var/db/agents var/download var/run var/selinux var/upgrade var/wodles wodles)
+	(cd ${DIR}; mkdir -p .ssh active-response active-response/bin agentless bin etc etc/local_decoders etc/shared/default etc/lists etc/rootcheck framework/wazuh integrations lib logs logs/alerts logs/archives logs/cluster logs/firewall logs/ossec queue queue/agent-info queue/agent-groups queue/agentless queue/agents queue/alerts queue/cluster queue/db queue/diff queue/fts queue/ossec queue/rids queue/rootcheck queue/syscheck queue/vulnerabilities rules ruleset stats tmp var var/db var/db/agents var/download var/multigroups var/run var/selinux var/upgrade var/wodles wodles)
 
 	# Populate the active-response/ directory
 	cp -p active-response/*.sh ${DIR}/active-response/bin/
@@ -41,7 +41,7 @@ install:
 	cp -pL /etc/localtime ${DIR}/etc/ 2>/dev/null || /bin/true
 	cp -p /etc/TIMEZONE ${DIR}/etc/   2>/dev/null || /bin/true
 	cp -pr etc/decoders ${DIR}/etc/
-	cp -pr etc/local_decoder.xml ${DIR}/etc/ > /dev/null 2>&1 || /bin/true
+	cp -pr etc/local_decoder.xml ${DIR}/etc/local_decoders/ > /dev/null 2>&1 || /bin/true
 	cp -pr etc/local_internal_options.conf ${DIR}/etc/ > /dev/null 2>&1 || /bin/true
 	cp -pr etc/client.keys ${DIR}/etc/ > /dev/null 2>&1 ||/bin/true
 	cp -pr etc/internal_options.conf ${DIR}/etc/
@@ -92,7 +92,7 @@ install:
 
 	# Populate the init file
 	echo "DIRECTORY=\"/var/ossec\"" > ${OSSEC_INIT}
-	echo "VERSION=\"v3.6.1\"" >> ${OSSEC_INIT}
+	echo "VERSION=\"v3.7.1\"" >> ${OSSEC_INIT}
 	echo "DATE=\"`date`\"" >> ${OSSEC_INIT}
 	echo "TYPE=\"server\"" >> ${OSSEC_INIT}
 	echo "NAME=\"Wazuh\"" >> ${OSSEC_INIT}
