@@ -2,7 +2,7 @@
 
 echo "This quick and dirty script will build an ossec-hids-server package using a Wazuh tarball."
 echo
-echo "What version would you like to build?  (Example: 3.7.1)"
+echo "What version would you like to build?  (Example: 3.7.2)"
 read VERSION
 echo "What revision is this?  (Example: 2)"
 read REVISION
@@ -35,7 +35,7 @@ cp ossec-hids-server-${VERSION}.${REVISION}.tar.gz ossec-hids-server_${VERSION}.
 cp -av ../files/* ossec-hids-server-${VERSION}.${REVISION}/
 
 # Update version in Makefile
-sed -i "s|v3.6.1|v${VERSION}|g" ossec-hids-server-${VERSION}.${REVISION}/Makefile
+sed -i "s|vX.Y.Z|v${VERSION}|g" ossec-hids-server-${VERSION}.${REVISION}/Makefile
 
 # update changelog
 cd ossec-hids-server-${VERSION}.${REVISION}

@@ -92,7 +92,7 @@ install:
 
 	# Populate the init file
 	echo "DIRECTORY=\"/var/ossec\"" > ${OSSEC_INIT}
-	echo "VERSION=\"v3.7.1\"" >> ${OSSEC_INIT}
+	echo "VERSION=\"vX.Y.Z\"" >> ${OSSEC_INIT}
 	echo "DATE=\"`date`\"" >> ${OSSEC_INIT}
 	echo "TYPE=\"server\"" >> ${OSSEC_INIT}
 	echo "NAME=\"Wazuh\"" >> ${OSSEC_INIT}
