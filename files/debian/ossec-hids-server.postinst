@@ -331,25 +331,25 @@ else
 		echo "Enabing email notification and importing email settings."
 		sed -i 's|<email_notification>no</email_notification>|<email_notification>yes</email_notification>|g' $NEWCONF || echo "Error enabling email notification."
 
-		if grep "<smtp_server>" $OLDCONF >/dev/null && ! grep "<smtp_server>" $NEWCONF > /dev/null; then
+		if grep "<smtp_server>" $OLDCONF >/dev/null > /dev/null; then
 			SMTP_SERVER=`grep "<smtp_server>" $OLDCONF | cut -d\> -f2 | cut -d\< -f1 | head -1`
 			echo "smtp_server: $SMTP_SERVER"
 			sed -i "s|<smtp_server>smtp.example.wazuh.com</smtp_server>|<smtp_server>$SMTP_SERVER</smtp_server>|g" $NEWCONF || echo "Error importing smtp_server setting."
 		fi
 
-		if grep "<email_from>" $OLDCONF >/dev/null && ! grep "<email_from>" $NEWCONF > /dev/null; then
+		if grep "<email_from>" $OLDCONF >/dev/null > /dev/null; then
 			EMAIL_FROM=`grep "<email_from>" $OLDCONF | cut -d\> -f2 | cut -d\< -f1 | head -1`
 			echo "email_from: $EMAIL_FROM"
 			sed -i "s|<email_from>ossecm@example.wazuh.com</email_from>|<email_from>$EMAIL_FROM</email_from>|g" $NEWCONF || echo "Error importing email_from setting."
 		fi
 
-		if grep "<email_to>" $OLDCONF >/dev/null && ! grep "<email_to>" $NEWCONF > /dev/null; then
+		if grep "<email_to>" $OLDCONF >/dev/null > /dev/null; then
 			EMAIL_TO=`grep "<email_to>" $OLDCONF | cut -d\> -f2 | cut -d\< -f1 | head -1`
 			echo "email_to: $EMAIL_TO"
 			sed -i "s|<email_to>recipient@example.wazuh.com</email_to>|<email_to>$EMAIL_TO</email_to>|g" $NEWCONF || echo "Error importing email_to setting."
 		fi
 
-		if grep "<email_maxperhour>" $OLDCONF >/dev/null && ! grep "<email_maxperhour>" $NEWCONF > /dev/null; then
+		if grep "<email_maxperhour>" $OLDCONF >/dev/null > /dev/null; then
 			EMAIL_MAXPERHOUR=`grep "<email_maxperhour" $OLDCONF | cut -d\> -f2 | cut -d\< -f1 | head -1`
 			echo "email_maxperhour: $EMAIL_MAXPERHOUR"
 			sed -i "s|<email_maxperhour>12</email_maxperhour>|<email_maxperhour>$EMAIL_MAXPERHOUR</email_maxperhour>|g" $NEWCONF || echo "Error importing email_maxperhour setting."
