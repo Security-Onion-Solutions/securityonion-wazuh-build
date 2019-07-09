@@ -156,6 +156,9 @@ else
 	ln -s ../etc/decoders /var/ossec/ruleset/decoders 2> /dev/null || echo "Error creating symlink."
 fi
 
+# ruleset/sca root:ossec 640
+chmod 640 ${DIR}/ruleset/sca/*.yml 2> /dev/null || /bin/true
+
 # var/db root:ossec 770
 chown -R root:${GROUP} ${DIR}/var/db 2> /dev/null || /bin/true
 chmod -R 770 ${DIR}/var/db 2> /dev/null || /bin/true
@@ -201,10 +204,12 @@ touch ${DIR}/logs/active-responses.log
 chown ${USER}:${GROUP} ${DIR}/logs/active-responses.log
 chmod 660 ${DIR}/logs/active-responses.log
 
-# [...]
+# rules dir
 chown -R root:${GROUP} ${DIR}/rules
 chmod -R 550 ${DIR}/rules
 
+# rules xml files root:ossec 640
+chmod 640 ${DIR}/rules/*.xml 2> /dev/null || /bin/true
 
 # For the etc dir
 chmod 550 ${DIR}/etc
@@ -215,7 +220,7 @@ if [ -e /etc/localtime ]; then
     chown root:${GROUP} ${DIR}/etc/localtime
 fi
 
-# [...]
+# timezone
 if [ -e /etc/TIMEZONE ]; then
     cp -p /etc/TIMEZONE ${DIR}/etc/;
     chmod 550 ${DIR}/etc/TIMEZONE
@@ -253,6 +258,9 @@ chmod 440 ${DIR}/etc/shared/*
 chmod 550 ${DIR}/agentless/*
 rm ${DIR}/etc/shared/merged.mg 2>/dev/null || /bin/true
 chmod 700 ${DIR}/.ssh
+
+# etc/decoders/*.xml root:ossec 640
+chmod 640 ${DIR}/etc/decoders/*.xml 2> /dev/null || /bin/true
 
 # etc/shared/default ossec:ossec 770 don't recurse
 chown -R ${USER}:${GROUP} ${DIR}/etc/shared/default 2> /dev/null || /bin/true
@@ -306,13 +314,19 @@ if [ ! -z $2 ]; then
 	fi
 fi
 
+# Starting in Wazuh 3.8.0, cdb lists are generated upon installation:
+# https://github.com/wazuh/wazuh/issues/2163
+# https://github.com/wazuh/wazuh/pull/2167
+echo "Generating CDB lists in /var/ossec/etc/lists/."
+/var/ossec/bin/ossec-makelists > /dev/null || echo "Error running /var/ossec/bin/ossec-makelists."
+
 #################
 # Security Onion 
 #################
 
 # local_rules.xml
 DEFAULT="/var/ossec/rules/local_rules.xml"
-BACKUP="/var/ossec/rules/local_rules.xml-2.8"
+BACKUP="/var/ossec/rules/local_rules.xml-pre-X.Y.Z"
 if [ ! -f $BACKUP ]; then
 	echo "No backup rules found at $BACKUP."
 else
@@ -321,7 +335,7 @@ fi
 
 # Check to see if user had enabled email previously
 NEWCONF="/var/ossec/etc/ossec.conf"
-OLDCONF="$NEWCONF-2.8"
+OLDCONF="$NEWCONF-pre-X.Y.Z"
 if [ ! -f $OLDCONF ]; then
 	echo "No backup config found at $OLDCONF."
 else
@@ -356,6 +370,11 @@ else
 		fi
 	fi
 	echo "Please double-check $NEWCONF and add back any local customizations."
+fi
+
+# Check to see if user had previously added agents
+if [ -s /var/ossec/etc/client.keys ]; then
+	echo "Please update any OSSEC/Wazuh agents to Wazuh X.Y.Z."
 fi
 
 ###

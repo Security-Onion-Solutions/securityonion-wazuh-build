@@ -2,7 +2,7 @@
 
 echo "This quick and dirty script will build an ossec-hids-server package using a Wazuh tarball."
 echo
-echo "What version would you like to build?  (Example: 3.8.2)"
+echo "What version would you like to build?  (Example: 3.9.3)"
 read VERSION
 echo "What revision is this?  (Example: 2)"
 read REVISION
@@ -27,6 +27,15 @@ cd ossec-hids-server-${VERSION}.${REVISION}/src
 make deps
 cd ../..
 
+# Update SRCMAKEFILE
+SRCMAKEFILE="ossec-hids-server-${VERSION}.${REVISION}/src/Makefile"
+# redirect the python build to /tmp
+sed -i 's|WPYTHON_DIR := ${PREFIX}/framework/python|WPYTHON_DIR := /tmp/wpython|g' $SRCMAKEFILE
+# Change find/link to copy
+sed -i 's|find ${WPYTHON_DIR}.*$|cp libwazuhext.so /tmp/wpython/lib|g' $SRCMAKEFILE
+# tell binaries where to find the libraries
+sed -i 's|cd ../framework &&|cd ../framework && LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/tmp/wpython/lib|g' $SRCMAKEFILE
+
 # Make new tarball
 tar zcvf ossec-hids-server-${VERSION}.${REVISION}.tar.gz ossec-hids-server-${VERSION}.${REVISION}
 cp ossec-hids-server-${VERSION}.${REVISION}.tar.gz ossec-hids-server_${VERSION}.${REVISION}.orig.tar.gz
@@ -34,8 +43,9 @@ cp ossec-hids-server-${VERSION}.${REVISION}.tar.gz ossec-hids-server_${VERSION}.
 # Copy files
 cp -av ../files/* ossec-hids-server-${VERSION}.${REVISION}/
 
-# Update version in Makefile
+# Update version in Makefile, preinst, and postinst
 sed -i "s|vX.Y.Z|v${VERSION}|g" ossec-hids-server-${VERSION}.${REVISION}/Makefile
+sed -i "s|X.Y.Z|${VERSION}|g" ossec-hids-server-${VERSION}.${REVISION}/debian/ossec-hids-server.p*inst
 
 # update changelog
 cd ossec-hids-server-${VERSION}.${REVISION}
@@ -46,4 +56,4 @@ debuild -S -sa
 
 # Upload source package
 cd ..
-dput ppa:doug-burks/xenial ossec-hids-server_${VERSION}.${REVISION}*source.changes
+dput ppa:doug-burks/wazuh ossec-hids-server_${VERSION}.${REVISION}*source.changes

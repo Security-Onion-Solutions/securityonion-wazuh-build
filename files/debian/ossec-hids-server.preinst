@@ -21,13 +21,13 @@ case "$1" in
 
 	FILE="/var/ossec/etc/ossec.conf"
 	if [ -f $FILE ]; then
-		cp $FILE $FILE-2.8
+		cp $FILE $FILE-pre-X.Y.Z
 		sed -e '/bro-ids_rules.xml/d' -i $FILE
 	fi
 	
 	FILE="/var/ossec/rules/local_rules.xml"
 	if [ -f $FILE ]; then
-		cp $FILE $FILE-2.8
+		cp $FILE $FILE-pre-X.Y.Z
 	fi
 	
     ;;
