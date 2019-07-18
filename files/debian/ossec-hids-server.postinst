@@ -292,11 +292,11 @@ else
 fi
 
 # Remove existing SQLite databases
-rm -f ${DIR}/var/db/.template.db* || true
-rm -f ${DIR}/var/db/global.db* || true
-rm -f ${DIR}/var/db/cluster.db* || true
-rm -f ${DIR}/var/db/.profile.db* || true
-rm -f ${DIR}/var/db/agents/* || true
+rm -f ${DIR}/var/db/.template.db* 	|| true
+rm -f ${DIR}/var/db/global.db* 		|| true
+rm -f ${DIR}/var/db/cluster.db* 	|| true
+rm -f ${DIR}/var/db/.profile.db* 	|| true
+rm -f ${DIR}/var/db/agents/* 		|| true
 
 # Remove existing SQLite databases for Wazuh DB when upgrading
 # Wazuh only if upgrading from 3.2..3.6
@@ -332,6 +332,12 @@ if [ ! -f $BACKUP ]; then
 else
 	cp $BACKUP $DEFAULT || echo "Error restoring $BACKUP."
 fi
+
+# older versions of rule-update copied local_rules.xml to local_rules_orig.xml which would cause duplicate rule issues with wazuh
+# rule-update ossec backup local rules issue #1572
+# https://github.com/Security-Onion-Solutions/security-onion/issues/1572
+# remove that file if it exists
+rm -f ${DIR}/rules/local_rules_orig.xml
 
 # Check to see if user had enabled email previously
 NEWCONF="/var/ossec/etc/ossec.conf"
