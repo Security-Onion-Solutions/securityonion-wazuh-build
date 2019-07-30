@@ -49,6 +49,7 @@ install:
 	cp -pr etc/lists/* 						${DIR}/etc/lists/
 	cp -pr etc/ossec-securityonion.conf 				${DIR}/etc/ossec.conf
 	cp -pr src/rootcheck/db/*.txt 					${DIR}/etc/rootcheck/
+	cp -pr etc/agent.conf 						${DIR}/etc/shared/agent-template.conf
 	cp -pr src/rootcheck/db/*.txt 					${DIR}/etc/shared/default/
 	cp -pr etc/agent.conf 						${DIR}/etc/shared/default/
 
