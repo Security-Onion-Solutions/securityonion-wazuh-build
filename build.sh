@@ -2,7 +2,7 @@
 
 echo "This quick and dirty script will build an ossec-hids-server package using a Wazuh tarball."
 echo
-echo "What version would you like to build?  (Example: 3.9.3)"
+echo "What version would you like to build?  (Example: 3.9.4)"
 read VERSION
 echo "What revision is this?  (Example: 2)"
 read REVISION
